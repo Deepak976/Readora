@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Readora - Next-Generation Digital Library</title>
+    <meta name="description" content="Experience the future of digital reading with Readora's AI-powered library platform featuring intelligent search, immersive reading, and seamless document management." />
+    <meta name="keywords" content="digital library, ebooks, AI reading assistant, document management, online books" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Readora - Next-Generation Digital Library" />
+    <meta property="og:description" content="Experience the future of digital reading with AI-powered search and immersive reading experiences." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://readora.com" />
+    <meta property="og:image" content="/og-image.jpg" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Readora - Next-Generation Digital Library" />
+    <meta name="twitter:description" content="Experience the future of digital reading with AI-powered search and immersive reading experiences." />
+    <meta name="twitter:image" content="/twitter-image.jpg" />
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts - Inter for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CDN with JIT mode enabled -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              'sans': ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+            },
+            animation: {
+              'gradient': 'gradient 6s ease-in-out infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+              'mesh-float': 'mesh-float 20s ease-in-out infinite',
+            },
+            keyframes: {
+              gradient: {
+                '0%, 100%': { 'background-position': '0% 50%' },
+                '50%': { 'background-position': '100% 50%' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0px) translateX(0px)', opacity: '0.3' },
+                '25%': { transform: 'translateY(-10px) translateX(5px)', opacity: '0.7' },
+                '50%': { transform: 'translateY(-5px) translateX(-3px)', opacity: '1' },
+                '75%': { transform: 'translateY(-8px) translateX(2px)', opacity: '0.7' },
+              },
+              'pulse-glow': {
+                '0%, 100%': { 
+                  transform: 'scale(1)', 
+                  'box-shadow': '0 0 10px rgba(16, 185, 129, 0.3)' 
+                },
+                '50%': { 
+                  transform: 'scale(1.1)', 
+                  'box-shadow': '0 0 20px rgba(16, 185, 129, 0.6)' 
+                },
+              },
+              'mesh-float': {
+                '0%, 100%': { transform: 'translateY(0px) rotate(0deg) scale(1)' },
+                '25%': { transform: 'translateY(-20px) rotate(2deg) scale(1.05)' },
+                '50%': { transform: 'translateY(-10px) rotate(-1deg) scale(1.1)' },
+                '75%': { transform: 'translateY(-15px) rotate(1deg) scale(1.05)' },
+              },
+            },
+            backdropBlur: {
+              'xs': '2px',
+              '4xl': '72px',
+            },
+            borderRadius: {
+              '4xl': '2rem',
+              '5xl': '2.5rem',
+            },
+            fontSize: {
+              '10xl': ['9rem', { lineHeight: '1' }],
+              '11xl': ['10rem', { lineHeight: '1' }],
+              '12xl': ['12rem', { lineHeight: '1' }],
+            },
+            boxShadow: {
+              'glow-blue': '0 0 30px rgba(59, 130, 246, 0.3)',
+              'glow-purple': '0 0 30px rgba(139, 92, 246, 0.3)',
+              'glow-pink': '0 0 30px rgba(236, 72, 153, 0.3)',
+              'glow-xl': '0 0 50px rgba(59, 130, 246, 0.2)',
+            },
+            perspective: {
+              '1000': '1000px',
+              '2000': '2000px',
+            },
+          }
+        },
+        plugins: [],
+      }
+    </script>
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+      /* Critical CSS to prevent FOUC */
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #0a0e1a;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      /* Loading state */
+      .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: #0a0e1a;
+      }
+      
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: rgba(15, 23, 42, 0.5);
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+      }
+      
+      /* Selection styles */
+      ::selection {
+        background: rgba(59, 130, 246, 0.3);
+        color: white;
+      }
+      
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading fallback -->
+    <div id="loading" class="loading">
+      <div style="text-align: center; color: white;">
+        <div style="width: 40px; height: 40px; border: 3px solid rgba(59, 130, 246, 0.3); border-top: 3px solid #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 16px;"></div>
+        <p style="margin: 0; font-weight: 500;">Loading Readora...</p>
+      </div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Hide loading screen once React loads -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loading = document.getElementById('loading');
+        const root = document.getElementById('root');
+        
+        // Check if React has rendered content
+        const checkReactLoaded = setInterval(() => {
+          if (root.children.length > 0) {
+            loading.style.display = 'none';
+            clearInterval(checkReactLoaded);
+          }
+        }, 100);
+        
+        // Fallback - hide loading after 5 seconds
+        setTimeout(() => {
+          loading.style.display = 'none';
+          clearInterval(checkReactLoaded);
+        }, 5000);
+      });
+    </script>
+    
+    <!-- Add spinning animation for loading -->
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </body>
+</html>

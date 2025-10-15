@@ -1,0 +1,271 @@
+/* Import Google Fonts - MUST be first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: #0a0e1a;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+  }
+
+  /* Selection styles */
+  ::selection {
+    background: rgba(59, 130, 246, 0.3);
+    color: white;
+  }
+}
+
+/* Enhanced component styles */
+@layer components {
+  /* Glass morphism with full browser support */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Advanced gradient animations */
+  .gradient-text {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 30%, #ec4899 60%, #f59e0b 100%);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 8s ease-in-out infinite;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Button with shine effect */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  .btn-shine:hover::before {
+    left: 100%;
+  }
+
+  /* Floating animation - much slower */
+  .float-slow {
+    animation: floatSlow 12s ease-in-out infinite;
+  }
+  
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Pulse glow effect */
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% { 
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+    }
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  /* Text glow effect */
+  .text-glow {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+
+  /* Book 3D effect */
+  .book-3d {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .book-cover {
+    transition: all 0.4s ease;
+    transform-origin: center;
+  }
+
+  .book-cover:hover {
+    transform: rotateY(15deg) rotateX(5deg);
+  }
+
+  /* Smooth reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Advanced utility classes */
+@layer utilities {
+  /* Enhanced backdrop blur with fallbacks */
+  .backdrop-blur-sm { 
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px); 
+  }
+  .backdrop-blur { 
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px); 
+  }
+  .backdrop-blur-md { 
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px); 
+  }
+  .backdrop-blur-lg { 
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px); 
+  }
+  .backdrop-blur-xl { 
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px); 
+  }
+  .backdrop-blur-2xl { 
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px); 
+  }
+  .backdrop-blur-3xl { 
+    -webkit-backdrop-filter: blur(64px);
+    backdrop-filter: blur(64px); 
+  }
+
+  /* Enhanced shadows */
+  .shadow-glow {
+    box-shadow: 
+      0 0 20px rgba(59, 130, 246, 0.3),
+      0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-glow-lg {
+    box-shadow: 
+      0 0 40px rgba(59, 130, 246, 0.4),
+      0 8px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Transform optimizations */
+  .transform-gpu {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Custom border radius */
+  .rounded-4xl { border-radius: 2rem; }
+  .rounded-5xl { border-radius: 2.5rem; }
+  .rounded-6xl { border-radius: 3rem; }
+
+  /* Animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .glass {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+  }
+}
